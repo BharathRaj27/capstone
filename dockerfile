@@ -1,6 +1,15 @@
 FROM python:3.11.0
-COPY . /app
+
+RUN /usr/local/bin/python -m pip install --upgrade pip
+
 WORKDIR /app
+
+COPY . .
+
 RUN pip install -r requirements.txt
-EXPOSE $PORT
-CMD gunicorn --workers=4 --bind 0.0.0.0:$PORT app:app
+
+EXPOSE 8501
+
+ENTRYPOINT ["streamlit", "run"]
+
+CMD ["stream_app.py"]
