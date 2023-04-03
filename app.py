@@ -9,7 +9,7 @@ from PIL import Image
 #app=Flask(__name__)
 #Swagger(app)
 
-pickle_in = open("model2.pkl","rb")
+pickle_in = open("model.pkl","rb")
 classifier=pickle.load(pickle_in)
 
 #@app.route('/')
